@@ -5,9 +5,11 @@
 
   </div>
   <div class="image-container" ng-repeat="need in needInfo">
-    <button class="btn btn-info product-links"  ng-click="addToCart(need.productID,need.name)"><img src="{{need.imageURL}}" alt="" /><h6>{{need.name}}<br><small>Customizable</small>
+    <button class="btn btn-info product-links"  ng-click="addToCart(need.productID,need.name,q)"><img src="{{need.imageURL}}" alt="" /><h6>{{need.name}}<br><small>Customizable</small>
     </h6>
     </button>
+    <br>
+    <input class="text-center" type="number" placeholder="Enter Quantity" ng-model="q">
   </div>
   <br>
   <br>
@@ -16,7 +18,7 @@
 </div>
 <div id="top" class="">
   <br>
-  <form class="" ng-submit="postOrder()" method="post">
+  <form class="" method="post">
     <input type="text" ng-model="firstName">
     <input type="text" ng-model="lastName">
     <input type="text" ng-model="email">

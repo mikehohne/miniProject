@@ -22,7 +22,7 @@ angular.module('pflApp').service('mainServ',function($http){
   this.postProductServ = function(data){
     return $http({
       method: 'GET',
-      url: 'api.php?endPoint=orders/' + data + '&method=post'
+      url: 'api.php?endPoint=orders/&data=' + data + '&method=post'
     }).then(function(response){
       console.log(response);
     });

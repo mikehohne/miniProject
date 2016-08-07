@@ -8,6 +8,7 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
 
 
 
+
   $scope.getProducts = function(){
     var templateId;
     mainServ.getProductsServ()
@@ -42,22 +43,17 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
 
 
   $scope.addToCart = function(id,name,q){
-    var invoiceOrder = [{
-              itemSequenceNumber: 1,
+    var q = 0;
+    var invoiceOrder =  [{
               productID: id,
               quantity: q,
-              productionDays: 4,
-              partnerItemReference: "MyItemReferenceID",
-              itemFile: "http://www.yourdomain.com/files/printReadyArtwork1.pdf"
+              productName: name,
+              productionDays: 4
           }];
     $scope.count++;
-    invoiceOrder.productID = id;
     if (q === undefined) {
       return alert("Please choose a quantity");
     }
-    invoiceOrder.quantity = q;
-    $scope.quantity = q;
-    $scope.orderProducts += name + " " + id + " " + q;
 
 
     console.log(invoiceOrder);
