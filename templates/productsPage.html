@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="image-container" ng-repeat="product in products">
+    <button class="btn btn-info product-links"  ng-click="addToCart(product.productID,product.name,q)"><img src="{{product.imageURL}}" alt="" /><h6>{{product.name}}</h6></button><br>
+    <input class="text-center" type="number" placeholder="Enter Quantity" ng-model="q">
+
+  </div>
+  <div class="image-container" ng-repeat="need in needInfo">
+    <button class="btn btn-info product-links"  ng-click="addToCart(need.productID,need.name)"><img src="{{need.imageURL}}" alt="" /><h6>{{need.name}}<br><small>Customizable</small>
+    </h6>
+    </button>
+  </div>
+  <br>
+  <br>
+  <div id="top">
+  </div>
+</div>
+<div id="top" class="">
+  <form class="" action="index.html" method="post">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+  </form>
+  <h5>Cart : {{count}}</h5>
+  <button class="btn btn-info checkout-button" name="button">Checkout</button>
+  <ul class="cart-container">
+    <li class="text-center">Product: {{orderProducts}} QTY:{{q}}</li>
+    <br>
+    <br>
+  </ul>
+</div>
