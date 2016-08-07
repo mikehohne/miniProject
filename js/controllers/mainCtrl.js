@@ -51,17 +51,33 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
               itemFile: "http://www.yourdomain.com/files/printReadyArtwork1.pdf"
           }];
     $scope.count++;
-    $scope.orderProducts += name + " " + id;
     invoiceOrder.productID = id;
     if (q === undefined) {
       return alert("Please choose a quantity");
     }
     invoiceOrder.quantity = q;
+    $scope.quantity = q;
+    $scope.orderProducts += name + " " + id + " " + q;
+
 
     console.log(invoiceOrder);
     console.log($scope.orderProducts);
 
 };
+
+$scope.postOrder = function(data){
+  var data = {
+    name:"test",
+    email: "test@gmail.com"
+  }
+  JSON.stringify(data)
+  console.log(data);
+  mainServ.postProductServ(data)
+  .then(function(response){
+    console.log(response);
+  })
+};
+
 
 
 

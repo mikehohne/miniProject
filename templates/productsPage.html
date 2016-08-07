@@ -15,17 +15,19 @@
   </div>
 </div>
 <div id="top" class="">
-  <form class="" action="index.html" method="post">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input type="text">
+  <br>
+  <form class="" ng-submit="postOrder()" method="post">
+    <input type="text" ng-model="firstName">
+    <input type="text" ng-model="lastName">
+    <input type="text" ng-model="email">
+    <input type="text" ng-model="phone">
+    <input type="text" ng-model="name">
+    <input type="submit" name="name" value="Submit Order">
   </form>
   <h5>Cart : {{count}}</h5>
   <button class="btn btn-info checkout-button" name="button">Checkout</button>
   <ul class="cart-container">
-    <li class="text-center">Product: {{orderProducts}} QTY:{{q}}</li>
+    <li class="text-center">Product: {{orderProducts}} QTY: {{quantity}}</li>
     <br>
     <br>
   </ul>
