@@ -1,8 +1,16 @@
-<div class="container cart text-center">
-  <button class="btn btn-warning" type="button" name="button" ng-hide=isCheckedOut ng-click="checkingOut()">Checkout</button>
-  <br>
+<!-- fixed shopping cart -->
+
+<div class="cart text-center">
   <h1>Cart: {{count}}</h1>
+  <br>
+  <button class="btn btn-warning checkout-button" type="button" name="button" ng-hide=isCheckedOut ng-click="checkingOut()">Checkout</button>
 </div>
+
+
+<br>
+
+<!-- products and products with template fields  -->
+
 <div class="container-fluid" ng-hide=isCheckedOut>
   <div class="image-container" ng-repeat="product in products">
     <button class="btn btn-info product-links"><img src="{{product.imageURL}}" alt="" /><h6>{{product.name}}</h6></button><br>
@@ -22,16 +30,21 @@
   <br>
 </div>
   <br>
-  <div class="container-fluid">
-  </div>
 <hr>
+
+<!-- invoice with order record -->
+
 <div class="" ng-show=isCheckedOut>
+  <h1>Your Orders</h1>
   <div class="order-list text-center" ng-repeat="order in cart">
     <ul class="checkout-list">
-      <li>{{order.name}}</li>
+      <li>Order: {{order.name}} QTY: {{order.quantity}} </li>
     </ul>
   </div>
     <br>
+
+    <!-- user information with order this would also have template fields -->
+
     <div id="footer-container" ng-show=checkedOut>
       <h1>Place Order</h1>
     <form class="form-group">
@@ -48,6 +61,7 @@
 
 </div>
 
+<!-- receipt with user's first and last name as well as confirmation email and order # -->
 <div class="container" ng-show=hasCheckedOut>
   <h1>Thank You {{firstName}} {{lastName}}</h1>
   <h1>A confirmation email has been sent to {{email}}</h1>
