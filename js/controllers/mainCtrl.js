@@ -28,12 +28,10 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
         }
       }
 
-      // console.log(template);
       $scope.needInfo = template;
       templateId = template[0].productID;
       $scope.products = response.results.data;
     });
-    // console.log(templateId);
     // $scope.getDetailProducts(templateId);
   }
 
@@ -42,7 +40,6 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
   $scope.getDetailProducts = function(id){
     mainServ.detailProductServ(id)
     .then(function(response){
-      console.log(response);
     });
   }
 
@@ -62,7 +59,6 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
     // creating a count variable for the cart
 
     $scope.count = Object.keys($scope.cart).length;
-    console.log($scope.cart);
   };
 
 
@@ -74,7 +70,7 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
     })
   };
 
-  // show and hide functions 
+  // show and hide functions
 
   $scope.checkingOut = function(){
     $scope.isCheckedOut = true;
