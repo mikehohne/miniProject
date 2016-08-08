@@ -30,12 +30,14 @@
   <br>
 </div>
   <br>
+
+  
 <hr>
 
 <!-- invoice with order record -->
 
 <div class="" ng-show=isCheckedOut>
-  <h1>Your Orders</h1>
+  <h1>Your Order(s)</h1>
   <div class="order-list text-center" ng-repeat="order in cart">
     <ul class="checkout-list">
       <li>Order: {{order.name}} QTY: {{order.quantity}} </li>
@@ -48,7 +50,7 @@
     <div id="footer-container" ng-show=checkedOut>
       <h1>Place Order</h1>
     <form class="form-group">
-      <input class="form-control checkout-info" placeholder="first name" type="text" ng-model="firstName">
+      <input class="form-control checkout-info" placeholder="first name" type="text" ng-model="firstName" required="password">
       <input class="form-control checkout-info" placeholder="last name" type="text" ng-model="lastName">
       <input class="form-control checkout-info" placeholder="email" type="text" ng-model="email">
       <input class="form-control checkout-info" placeholder="phone #" type="text" ng-model="phone">
