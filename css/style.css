@@ -1,23 +1,4 @@
 
-body:before, body:after {
-    content: "";
-    position: fixed;
-    background: #900;
-    left: 0;
-    right: 0;
-    height: 10px;
-}
-body:before {
-    top: 0;
-}
-body:after {
-    bottom: 0;
-}
-body {
-    border-left: 10px solid #900;
-    border-right: 10px solid #900;
-}
-
 .container-fluid {
   display: flex;
   justify-content: flex-start;
@@ -46,6 +27,14 @@ img {
 
 .checkout-info {
   width: 40rem;
+}
+
+.checkout-list {
+  list-style: none;
+}
+
+.order-list {
+  text-align: center;
 }
 
 .links {

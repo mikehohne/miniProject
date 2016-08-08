@@ -14,7 +14,6 @@ angular.module('pflApp').service('mainServ',function($http){
       method:'GET',
       url: 'api.php?endPoint=products/' + id + '&method=get'
     }).then(function(response){
-      console.log(response);
       return response.data.results;
     })
   }

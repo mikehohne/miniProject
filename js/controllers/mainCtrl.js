@@ -6,6 +6,7 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
   $scope.cart = {};
 
   $scope.isCheckedOut = false;
+  $scope.hasCheckedOut = false;
 
 
 
@@ -40,26 +41,19 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
   }
 
 
-  $scope.addToOrder = function(id,q){
+  $scope.addToOrder = function(name,q,id){
     if (q === undefined || q < 0) {
       return alert("Please choose a quantity more than 0");
     }
-    $scope.cart[id] = {
-      quantity: q
+    $scope.cart[name] = {
+      name: name,
+      quantity: q,
+      productId: id
     };
+    console.log($scope.cart);
   };
 
 
-
-  $scope.addTemplateToOrder = function(id,q,userName,email,userPhone){
-    if(q === undefined){
-      return alert("please put in a ")
-    }
-    $scope.cart[id] = q;
-    $scope.cart.userName = userName;
-    $scope.cart.email = email;
-    $scope.cart.userPhoner = userPhone;
-  };
 
 // This would be for making an order with invoiceOrder data above;
   $scope.postOrder = function(data){
@@ -70,6 +64,11 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
 
   $scope.checkingOut = function(){
     $scope.isCheckedOut = true;
+  }
+
+  $scope.hasCheckedOut = function(){
+    $scope.orderNumber = 4515872800;
+    $scope.hasCheckedOut = true;
   }
 
 });
