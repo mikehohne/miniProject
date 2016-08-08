@@ -5,9 +5,9 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
   $scope.products;
   $scope.cart = {};
 
+  $scope.isProducts = true;
   $scope.isCheckedOut = false;
   $scope.hasCheckedOut = false;
-
 
 
 
@@ -50,6 +50,8 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
       quantity: q,
       productId: id
     };
+
+    $scope.count = Object.keys($scope.cart).length;
     console.log($scope.cart);
   };
 
@@ -69,6 +71,7 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
   $scope.checkedOut = function(){
     $scope.orderNumber = 4515872800;
     $scope.hasCheckedOut = true;
+    $scope.checkedOut = false;
   }
 
 });

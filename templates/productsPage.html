@@ -1,9 +1,10 @@
-<div class="container cart-container">
-  <h1>Cart: {{order.name.length}}</h1>
+<div class="container cart text-center">
+  <button class="btn btn-warning" type="button" name="button" ng-hide=isCheckedOut ng-click="checkingOut()">Checkout</button>
+  <br>
+  <h1>Cart: {{count}}</h1>
 </div>
-
 <div class="container-fluid" ng-hide=isCheckedOut>
-  <div class="image-container" ng-repeat="product in products" >
+  <div class="image-container" ng-repeat="product in products">
     <button class="btn btn-info product-links"><img src="{{product.imageURL}}" alt="" /><h6>{{product.name}}</h6></button><br>
     <input class="form-control text-center" type="number" placeholder="Enter Quantity" ng-model="q">
     <br>
@@ -22,7 +23,6 @@
 </div>
   <br>
   <div class="container-fluid">
-    <button class="btn btn-warning" type="button" name="button" ng-hide=isCheckedOut ng-click="checkingOut()">Checkout</button>
   </div>
 <hr>
 <div class="" ng-show=isCheckedOut>
@@ -32,9 +32,9 @@
     </ul>
   </div>
     <br>
-    <div id="footer-container" ng-show=isCheckedOut>
+    <div id="footer-container" ng-show=checkedOut>
       <h1>Place Order</h1>
-    <form class="" method="post">
+    <form class="form-group">
       <input class="form-control checkout-info" placeholder="first name" type="text" ng-model="firstName">
       <input class="form-control checkout-info" placeholder="last name" type="text" ng-model="lastName">
       <input class="form-control checkout-info" placeholder="email" type="text" ng-model="email">
@@ -46,10 +46,10 @@
     </form>
   </div>
 
-  <div class="container" ng-show=hasCheckedOut>
-    <h1>Thank You {{firstName}} {{lastName}}</h1>
-    <h1>A confirmation email has been sent to {{email}}</h1>
-    <h1>Order #: {{orderNumber}}</h1>
-  </div>
+</div>
 
+<div class="container" ng-show=hasCheckedOut>
+  <h1>Thank You {{firstName}} {{lastName}}</h1>
+  <h1>A confirmation email has been sent to {{email}}</h1>
+  <h1>Order #: {{orderNumber}}</h1>
 </div>
