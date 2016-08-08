@@ -32,8 +32,8 @@ body {
 
 img {
   margin-top: .5rem;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border: 2px solid #fff;
 }
 
@@ -44,8 +44,9 @@ img {
 }
 
 
-
-
+.checkout-info {
+  width: 40rem;
+}
 
 .links {
   width: 12rem;
@@ -58,14 +59,10 @@ h6 {
 }
 
 #top, #bottom, #left, #right {
-	background: #a5ebff;
   text-align: center;
 	}
 	#left, #right {
 		top: 0; bottom: 0;
-		width: 12rem;
-    margin-top: 20rem;
-    margin-right: 2rem;
 		}
 		#left { left: 0; }
 		#right {
@@ -82,18 +79,17 @@ h6 {
      }
 
 #bottom {
-  margin-bottom: 0rem;
+  margin-bottom: 5rem;
 }
 
+#footer-container {
+  display: inline-block;
+  text-align: center;
+}
 
 .cart-container {
   display: flex;
   justify-content: flex-start;
   font-size: 1rem;
   list-style: none;
-}
-
-.checkout-button {
-  height: 4rem;
-  width: 10rem;
 }

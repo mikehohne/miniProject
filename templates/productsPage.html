@@ -1,36 +1,38 @@
-<div class="container-fluid">
-  <div class="image-container" ng-repeat="product in products">
-    <button class="btn btn-info product-links"  ng-click="addToCart(product.productID,product.name,q)"><img src="{{product.imageURL}}" alt="" /><h6>{{product.name}}</h6></button><br>
-    <input class="text-center" type="number" placeholder="Enter Quantity" ng-model="q">
+<div class="container-fluid" ng-hide=isCheckedOut>
+  <div class="image-container" ng-repeat="product in products" >
+    <button class="btn btn-info product-links"><img src="{{product.imageURL}}" alt="" /><h6>{{product.name}}</h6></button><br>
+    <input class="form-control text-center" type="number" placeholder="Enter Quantity" ng-model="q">
+    <br>
+    <input class="btn" type="button" name="name" value="Add to Order" ng-click="addToOrder(product.productID, q)">
+
 
   </div>
   <div class="image-container" ng-repeat="need in needInfo">
-    <button class="btn btn-info product-links"  ng-click="addToCart(need.productID,need.name,q)"><img src="{{need.imageURL}}" alt="" /><h6>{{need.name}}<br><small>Customizable</small>
+    <button class="btn btn-info product-links"><img src="{{need.imageURL}}" alt="" /><h6>{{need.name}}<br><small>Customizable</small>
     </h6>
     </button>
+    <input class="form-control text-center" type="number" placeholder="Enter Quantity" ng-model="q">
     <br>
-    <input class="text-center" type="number" placeholder="Enter Quantity" ng-model="q">
+    <input class="btn" type="button" name="name" value="Add to Order" ng-click="addTemplateToOrder(need.productID,q,name,email,phone)">
   </div>
   <br>
   <br>
-  <div id="top">
-  </div>
+  <button type="button" name="button" ng-click="checkingOut()">Checkout</button>
 </div>
-<div id="top" class="">
-  <br>
-  <form class="" method="post">
-    <input type="text" ng-model="firstName">
-    <input type="text" ng-model="lastName">
-    <input type="text" ng-model="email">
-    <input type="text" ng-model="phone">
-    <input type="text" ng-model="name">
-    <input type="submit" name="name" value="Submit Order">
-  </form>
-  <h5>Cart : {{count}}</h5>
-  <button class="btn btn-info checkout-button" name="button">Checkout</button>
-  <ul class="cart-container">
-    <li class="text-center">Product: {{orderProducts}} QTY: {{quantity}}</li>
+<hr>
+<div id="bottom" class="container" ng-show=isCheckedOut>
     <br>
-    <br>
-  </ul>
+    <div id="footer-container">
+      <h1>Place Order</h1>
+    <form class="" method="post">
+      <input class="form-control checkout-info" placeholder="first name" type="text" ng-model="firstName">
+      <input class="form-control checkout-info" placeholder="last name" type="text" ng-model="lastName">
+      <input class="form-control checkout-info" placeholder="email" type="text" ng-model="email">
+      <input class="form-control checkout-info" placeholder="phone #" type="text" ng-model="phone">
+      <input class="form-control checkout-info" placeholder="payment type" type="text" ng-model="phone">
+      <input class="form-control checkout-info" placeholder="card #" type="text" ng-model="phone">
+      <input class="form-control checkout-info" placeholder="cvc code" type="text" ng-model="phone">
+      <input class="form-control checkout-info" placeholder="first name" type="submit" name="name" value="Submit Order">
+    </form>
+  </div>
 </div>

@@ -3,8 +3,9 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
   var template = [];
   $scope.needInfo;
   $scope.products;
-  $scope.orderProducts = "";
-  $scope.count = 0;
+  $scope.cart = {};
+
+  $scope.isCheckedOut = false;
 
 
 
@@ -19,10 +20,11 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
           response.results.data.splice(i,1);
         }
       }
+
+      console.log(template);
       // console.log(template);
       $scope.needInfo = template;
       templateId = template[0].productID;
-      console.log(template);
       $scope.products = response.results.data;
     });
     // console.log(templateId);
@@ -34,49 +36,40 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
     mainServ.detailProductServ(id)
     .then(function(response){
       console.log(response);
-  });
-}
-
-
-
-
-
-
-  $scope.addToCart = function(id,name,q){
-    var q = 0;
-    var invoiceOrder =  [{
-              productID: id,
-              quantity: q,
-              productName: name,
-              productionDays: 4
-          }];
-    $scope.count++;
-    if (q === undefined) {
-      return alert("Please choose a quantity");
-    }
-
-
-    console.log(invoiceOrder);
-    console.log($scope.orderProducts);
-
-};
-
-$scope.postOrder = function(data){
-  var data = {
-    name:"test",
-    email: "test@gmail.com"
+    });
   }
-  JSON.stringify(data)
-  console.log(data);
-  mainServ.postProductServ(data)
-  .then(function(response){
-    console.log(response);
-  })
-};
+
+
+  $scope.addToOrder = function(id,q){
+    if (q === undefined || q < 0) {
+      return alert("Please choose a quantity more than 0");
+    }
+    $scope.cart[id] = {
+      quantity: q
+    };
+  };
 
 
 
+  $scope.addTemplateToOrder = function(id,q,userName,email,userPhone){
+    if(q === undefined){
+      return alert("please put in a ")
+    }
+    $scope.cart[id] = q;
+    $scope.cart.userName = userName;
+    $scope.cart.email = email;
+    $scope.cart.userPhoner = userPhone;
+  };
 
+// This would be for making an order with invoiceOrder data above;
+  $scope.postOrder = function(data){
+    mainServ.postProductServ(data)
+    .then(function(response){
+    })
+  };
 
+  $scope.checkingOut = function(){
+    $scope.isCheckedOut = true;
+  }
 
 });

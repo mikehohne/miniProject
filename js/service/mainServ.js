@@ -4,7 +4,6 @@ angular.module('pflApp').service('mainServ',function($http){
       method: 'GET',
       url: 'api.php?endPoint=products&method=get'
     }).then(function(response){
-      console.log(response);
       return response.data
     })
   };
@@ -15,6 +14,7 @@ angular.module('pflApp').service('mainServ',function($http){
       method:'GET',
       url: 'api.php?endPoint=products/' + id + '&method=get'
     }).then(function(response){
+      console.log(response);
       return response.data.results;
     })
   }
@@ -24,7 +24,6 @@ angular.module('pflApp').service('mainServ',function($http){
       method: 'GET',
       url: 'api.php?endPoint=orders/&data=' + data + '&method=post'
     }).then(function(response){
-      console.log(response);
     });
   }
 });
