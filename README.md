@@ -11,7 +11,7 @@ Since I could not get "POST" to work, I hard coded in an order number that appea
 
 DESIGN: I used Bootstrap for design to keep content organized, but I mostly concentrated on logic and making things work.
 
-METHODS: Angular, Angular Routes, PHP, Git, Bootstrap, HTML, CSSs
+METHODS: Angular, Angular Routes, PHP, Git, Bootstrap, HTML, CSS
 
 
 Cheers,
