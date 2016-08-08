@@ -66,7 +66,7 @@ angular.module('pflApp').controller('mainCtrl', function($scope,mainServ){
     $scope.isCheckedOut = true;
   }
 
-  $scope.hasCheckedOut = function(){
+  $scope.checkedOut = function(){
     $scope.orderNumber = 4515872800;
     $scope.hasCheckedOut = true;
   }

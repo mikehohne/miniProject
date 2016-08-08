@@ -1,3 +1,7 @@
+<div class="container cart-container">
+  <h1>Cart: {{order.name.length}}</h1>
+</div>
+
 <div class="container-fluid" ng-hide=isCheckedOut>
   <div class="image-container" ng-repeat="product in products" >
     <button class="btn btn-info product-links"><img src="{{product.imageURL}}" alt="" /><h6>{{product.name}}</h6></button><br>
@@ -28,7 +32,7 @@
     </ul>
   </div>
     <br>
-    <div id="footer-container" ng-show=hasCheckedOut>
+    <div id="footer-container" ng-show=isCheckedOut>
       <h1>Place Order</h1>
     <form class="" method="post">
       <input class="form-control checkout-info" placeholder="first name" type="text" ng-model="firstName">
@@ -42,7 +46,7 @@
     </form>
   </div>
 
-  <div class="container" ng-hide=hasCheckedOut>
+  <div class="container" ng-show=hasCheckedOut>
     <h1>Thank You {{firstName}} {{lastName}}</h1>
     <h1>A confirmation email has been sent to {{email}}</h1>
     <h1>Order #: {{orderNumber}}</h1>
